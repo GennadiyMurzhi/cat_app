@@ -1,3 +1,3 @@
 # cats_app
 
-A test assignment from dreambit.io
+Сat catalog. Consists of a list screen, and a screen detailing the cat.
