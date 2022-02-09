@@ -2,14 +2,14 @@ import 'package:cats_app/core/usecases/repository_usecase.dart';
 import 'package:cats_app/domain/entities/cat_details.dart';
 import 'package:cats_app/domain/repositories/cats_repository.dart';
 
-class GetListOfCats implements RepositoryUseCase<CatDetails, Params>{
-  final CatsRepository catsRepository;
+class GetCatDetails implements RepositoryUseCase<CatDetails, Params>{
+  final CatsRepository repository;
 
-  GetListOfCats(this.catsRepository);
+  GetCatDetails({required this.repository});
 
   @override
   Future<CatDetails> call(Params params) async {
-    return await catsRepository.getCatDetails(params.id);
+    return await repository.getCatDetails(params.id);
   }
 
 }
