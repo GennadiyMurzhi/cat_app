@@ -16,25 +16,28 @@ class DetailsScreen extends StatelessWidget{
               needPop: true,
               body: (BlocProvider.of<ScreenCubit>(context).state is ScreenLoaded)
                   ?
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Column(
-                  children: [
-                    CatBasicInfo(
-                      needPushButton: false,
-                      name: (BlocProvider.of<ScreenCubit>(context).state as ScreenLoaded).cat!.name,
-                      origin: (BlocProvider.of<ScreenCubit>(context).state as ScreenLoaded).cat!.origin,
-                      imageUrl: (BlocProvider.of<ScreenCubit>(context).state as ScreenLoaded).cat!.imageUrl,
-                      wikiUrl: (BlocProvider.of<ScreenCubit>(context).state as ScreenLoaded).cat!.wikiUrl,
-                    ),
-                    CatDetailsInfo(
-                      description:(BlocProvider.of<ScreenCubit>(context).state as ScreenLoaded).catDetails!.description,
-                      dogFriendly:(BlocProvider.of<ScreenCubit>(context).state as ScreenLoaded).catDetails!.dogFriendly,
-                      energyLevel:(BlocProvider.of<ScreenCubit>(context).state as ScreenLoaded).catDetails!.energyLevel,
-                      grooming:(BlocProvider.of<ScreenCubit>(context).state as ScreenLoaded).catDetails!.grooming,
-                      temperament:(BlocProvider.of<ScreenCubit>(context).state as ScreenLoaded).catDetails!.temperament,
-                    ),
-                  ],
+              SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 10,),
+                      CatBasicInfo(
+                        needPushButton: false,
+                        name: (BlocProvider.of<ScreenCubit>(context).state as ScreenLoaded).cat!.name,
+                        origin: (BlocProvider.of<ScreenCubit>(context).state as ScreenLoaded).cat!.origin,
+                        imageUrl: (BlocProvider.of<ScreenCubit>(context).state as ScreenLoaded).cat!.imageUrl,
+                        wikiUrl: (BlocProvider.of<ScreenCubit>(context).state as ScreenLoaded).cat!.wikiUrl,
+                      ),
+                      CatDetailsInfo(
+                        description:(BlocProvider.of<ScreenCubit>(context).state as ScreenLoaded).catDetails!.description,
+                        dogFriendly:(BlocProvider.of<ScreenCubit>(context).state as ScreenLoaded).catDetails!.dogFriendly,
+                        energyLevel:(BlocProvider.of<ScreenCubit>(context).state as ScreenLoaded).catDetails!.energyLevel,
+                        grooming:(BlocProvider.of<ScreenCubit>(context).state as ScreenLoaded).catDetails!.grooming,
+                        temperament:(BlocProvider.of<ScreenCubit>(context).state as ScreenLoaded).catDetails!.temperament,
+                      ),
+                    ],
+                  ),
                 ),
               )
               : Container()

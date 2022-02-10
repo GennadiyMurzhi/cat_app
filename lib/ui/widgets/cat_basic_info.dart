@@ -62,8 +62,20 @@ class CatBasicInfo extends StatelessWidget{
             height: MediaQuery.of(context).size.width / 2,
             child: const Text('no image', style: TextStyle(fontSize: 24)),
           ),
-          Text(name != '' ? name : noInfoAbout),
-          Text(origin != '' ? 'origin: $origin'  : noInfoAbout),
+          Text(
+              name != '' ? name : noInfoAbout,
+            style: const TextStyle(
+              fontSize: 18,
+              fontFamily: 'Bahnschrift'
+            ),
+          ),
+          Text(
+              origin != '' ? 'origin: $origin'  : noInfoAbout,
+            style: const TextStyle(
+                fontFamily: 'Jura',
+              fontWeight: FontWeight.w500
+            ),
+          ),
           imageUrl != '' ? CatButton(
             label: 'Open wiki',
             onPressed: () => _openWiki(wikiUrl),
