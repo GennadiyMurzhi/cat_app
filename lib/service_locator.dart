@@ -3,6 +3,7 @@ import 'package:cats_app/data/repositories/cats_repository_impl.dart';
 import 'package:cats_app/domain/repositories/cats_repository.dart';
 import 'package:cats_app/domain/usecases/get_cat_details.dart';
 import 'package:cats_app/domain/usecases/get_list_of_cats.dart';
+import 'package:cats_app/ui/screens/cubit/screen_cubit.dart';
 import 'package:dio/dio.dart';
 
 final locator = ServiceLocator();
@@ -16,7 +17,13 @@ void init() {
 
   locator.addService<GetListOfCats>(GetListOfCats(repository: locator<CatsRepository>()));
 
-  locator.addService<GetCatDetails>(GetListOfCats(repository: locator<CatsRepository>()));
+  locator.addService<GetCatDetails>(GetCatDetails(repository: locator<CatsRepository>()));
+
+  locator.addService<ScreenCubit>(ScreenCubit(
+    getListOfCats: locator<GetListOfCats>(),
+    getCatDetails: locator<GetCatDetails>(),
+  ));
+
 }
 
 class ServiceLocator{
@@ -38,8 +45,9 @@ class ServiceLocator{
     return services[T];
   }
 
-  void printServices(){
-    print(services.toString());
+  @override
+  String toString(){
+    return services.toString();
   }
 
 }

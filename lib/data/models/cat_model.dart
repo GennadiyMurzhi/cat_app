@@ -45,6 +45,11 @@ class CatModel extends Cat{
 
 }
 
-String _imageFromJson(Map<String, dynamic> image) => image['url'] ?? '';
+String _imageFromJson(Map<String, dynamic> image) {
+  if(image['url'] == null) {
+    return '';
+  }
+  return image['url'].replaceAll('\\','');
+}
 
 List<dynamic> _imageToJson(imageUrl) => [{'url' : imageUrl}];

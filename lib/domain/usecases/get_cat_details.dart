@@ -17,5 +17,5 @@ class GetCatDetails implements RepositoryUseCase<CatDetails, Params>{
 class Params{
   final String id;
 
-  const Params(this.id);
+  const Params({required this.id});
 }
