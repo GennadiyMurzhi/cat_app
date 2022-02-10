@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
       create: (context) => locator<ScreenCubit>(),
       child: BlocBuilder<ScreenCubit, ScreenState>(
         builder: (context, state) => MaterialApp(
+            debugShowCheckedModeBanner: false,
             title: 'Cat app',
             theme: ThemeData(
               primarySwatch: Colors.blue,
